@@ -1,0 +1,71 @@
+
+fetch_db.exe
+	输入远端ip port 以及远端数据库文件/images/metadata.db
+	拉取远端metadata.db 到当前目录，保存有远程内容
+	
+initdb.exe
+	创建数据库，仅创建表， 默认名称metadata_local.db，可用于自建本地图片浏览系统
+	eg: initdb metadata_local.db 在当前目录创建数据库
+	metadata_local.db 就保存的是媒体的元数据，以及标签
+	
+ImageIndexer.exe 创建数据系统
+用于扫描本地data/下图片，并录入数据库，以及在data/同级目录生成thumbnail/ 保存缩略图
+	eg: ImageIndexer D:\Z_project\data\twitter D:\Z_project\ D:\Z_project\metadata_local.db
+		参数：
+		1.要入库的图片所在目录，也可以是相对路径（支持递归）
+		2.rootpath，必须是绝对路径，获得 data/ 相对目录 
+		3.D:\Z_project\metadata_local.db 入库数据库的路径，可以相对路径
+		
+		输出示例：
+		Scan complete!
+		Inserted/Updated: 108
+		Skipped (unchanged): 0
+		thumbRelWError: 0
+		generateThumbError: 0
+		insertcountErrors: 0
+
+		===== 各目录入库&缩略图统计 =====
+		[data/twitter/p1] 入库成功:7 缩略图成功:7
+		[data/twitter] 入库成功:101 缩略图成功:101
+		==================================
+		
+目录结构
+Z_project/
+├── data/						将图片文件全部存在data中
+│   └── twitter/
+│       └── p1/
+│       │   ├── 00001.webp
+│       │   ├── 00002.webp
+│       │   └── ...
+│       ├──000099.webp
+│		└── ...
+├── thumbnail/					ImageIndexer自动扫描data下所有目录（递归），入库+创建缩略图
+│   └── twitter/                如果缩略图已存在，则会直接跳过，不影响入库
+│       └── p1/
+│       │   ├── 00001_ithu.webp
+│       │   ├── 00002_ithu.webp
+│       │   └── ...
+│       ├──000099_thu.webp
+│		└── ...
+└── metadata_local.db			initdb.exe创建的数据库（fetch_db.exe是获取远程数据库，已经存入内容了）
+
+
+如何构建本地系统
+	1.将图片放到data/中，如data/twitter/
+	1.initdb.exe metadata_local.db 名称不能包含中文
+	2.ImageIndexer D:\Z_project\data\twitter D:\Z_project\ metadata_local.db
+	
+	注意：
+	虽然ImageIndexer支持递归扫描，但如果图片很多，则推荐每个目录单独录入
+	
+如果data/twitter/中有新图片
+	ImageIndexer D:\Z_project\data\twitter D:\Z_project\ metadata_local.db --incremental
+	增量入库，是根据该目录中修改时间为最晚的图片为基准，只入库修改时间晚于该时间，就会入库
+	
+关于ImageIndexer和ImageIndexer_statis
+	ImageIndexer_statis中的ImageIndexer输出统计信息
+	
+	===== 各目录入库&缩略图统计 =====
+	[data/twitter/p1] 入库成功:7 缩略图成功:7
+	[data/twitter] 入库成功:101 缩略图成功:101
+	==================================

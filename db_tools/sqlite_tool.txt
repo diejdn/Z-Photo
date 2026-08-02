@@ -1,0 +1,56 @@
+
+可以安装sqlite3命令行工具，命令行查看数据表
+https://www.sqlite.org/download.html
+
+安装教程
+	1.请访问 SQLite 下载页面https://www.sqlite.org/download.html，从 Windows 区下载预编译的二进制文件。
+
+	2.您需要下载 sqlite-tools-win32-*.zip 和 sqlite-dll-win32-*.zip 压缩文件。
+
+	3.创建文件夹 C:\sqlite，并在此文件夹下解压上面两个压缩文件，将得到 sqlite3.def、sqlite3.dll 和 sqlite3.exe 文件。
+
+	4.添加 C:\sqlite 到 PATH 环境变量，最后在命令提示符下，使用 sqlite3 命令，将显示如下结果。
+	
+		D:\Z_project>sqlite3
+		SQLite version 3.53.3 2026-06-26 20:14:12
+		Enter ".help" for usage hints.
+		Connected to a transient in-memory database.
+		Use ".open FILENAME" to reopen on a persistent database.
+		sqlite>
+		
+
+基本使用方法：
+	1.使用init.sql建表，并保存为数据库文件test.db （该步骤 initdb.exe 等价实现）init.sql为该系统使用的数据表
+	sqlite3 test.db < init.sql
+	
+	2.打开数据表
+	D:\Z_project>sqlite3 test.db
+	SQLite version 3.53.3 2026-06-26 20:14:12
+	Enter ".help" for usage hints.
+	sqlite>
+	
+	3.查看当前存在的表
+	sqlite> .table
+	media     media_tag_rel     tag
+	sqlite>
+	
+	4.查看表结构
+	sqlite> .schema media
+	CREATE TABLE media (
+		media_id INTEGER PRIMARY KEY AUTOINCREMENT,
+		file_path TEXT NOT NULL UNIQUE,
+		name TEXT NOT NULL,
+		source_folder TEXT NOT NULL,
+		mtime INTEGER NOT NULL,
+		thumbnail_path TEXT,
+			media_type INTEGER NOT NULL DEFAULT 0   -- 0: 图片, 1: 视频
+	);
+	CREATE INDEX idx_media_source_folder ON media(source_folder);
+	CREATE INDEX idx_media_mtime ON media(mtime);
+	CREATE INDEX idx_media_type ON media(media_type);
+	sqlite>
+	
+	5.退出
+	sqlite> .quit
+
+	D:\Z_project>

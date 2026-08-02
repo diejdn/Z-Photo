@@ -1,0 +1,103 @@
+/* ===== AddTagWindow 全局样式 ===== */
+QWidget#AddTagWindow {
+    background-color: #ffffff;
+}
+
+/* ===== 输入框 ===== */
+QLineEdit {
+    background: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 13px;
+    color: #2A4554;
+}
+QLineEdit:read-only {
+    background: #f2f3f5;
+    color: #606266;
+}
+QLineEdit:focus {
+    border: 1px solid #7CB8D2;
+}
+
+/* ===== 标签列表容器 ===== */
+QListWidget {
+    background: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+    padding: 6px;
+    outline: none;
+}
+
+/* 标签条目 */
+QListWidget::item {
+    background: #dff1ea;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin: 3px;
+    font-size: 12px;
+    color: #2A4554;
+}
+QListWidget::item:hover {
+    background: #bbe6d4;
+    color: #1F4657;
+}
+QListWidget::item:selected {
+    background: #7CB8D2;
+    color: white;
+}
+QListWidget::item:selected:hover {
+    background: #63A7C6;
+}
+
+/* ===== 美化滚动条 ===== */
+QScrollBar:vertical {
+    width: 8px;
+    background: transparent;
+    margin: 4px 0;
+}
+QScrollBar::handle:vertical {
+    background: #BFD8E2;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #97B9CB;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* ===== 主操作按钮（添加/筛选）与主窗口 queryBtn 风格统一 ===== */
+QPushButton#actionBtn {
+    background-color: #C6E4EE;
+    color: #1F4657;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 6px 16px;
+}
+QPushButton#actionBtn:hover {
+    background-color: #A9D6E6;
+}
+QPushButton#actionBtn:pressed {
+    background-color: #8CC6DD;
+}
+
+/* ===== 删除按钮（柔和红） ===== */
+QPushButton#deleteBtn {
+    background-color: #e89898;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 6px 16px;
+}
+QPushButton#deleteBtn:hover {
+    background-color: #f0adad;
+}
+QPushButton#deleteBtn:pressed {
+    background-color: #dd7f7f;
+}

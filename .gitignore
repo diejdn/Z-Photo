@@ -1,0 +1,29 @@
+# 编译输出
+build/
+build_*/
+*.exe
+*.dll
+*.so
+*.obj
+*.out
+
+# Qt 自动生成
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+Makefile
+*.pro.user
+*.user.*
+
+# 私人数据
+data/
+thumbnail/
+*.db
+*.db-journal
+*.sqlite
+logs/
+temp/
+
+# 操作系统
+Thumbs.db
+.DS_Store

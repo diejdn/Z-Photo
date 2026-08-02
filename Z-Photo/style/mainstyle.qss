@@ -1,0 +1,285 @@
+/* ===== 主窗口全局底座 柔和浅蓝底色 #DCEFF6 ===== */
+MyMainWindow {
+    background-color: #DCEFF6;
+}
+
+/* ===== 中心部件容器 ===== */
+QWidget#centralWidget {
+    background-color: #DCEFF6;
+}
+
+/* ===== 分割器与分割线（弱化低饱和） ===== */
+QSplitter::handle {
+    background: #BFD8E2;
+    width: 4px;
+    height: 4px;
+}
+QSplitter::handle:hover {
+    background: #A2C4D3;
+}
+
+/* ===== 左右面板卡片底色 ===== */
+QWidget#leftPanel {
+    background-color: #FFFFFF;
+    border-right: 1px solid #C9E0EB;
+}
+QWidget#rightPanel {
+    background-color: #FFFFFF;
+}
+
+/* ===== 通用基础按钮（dir_btn）同源浅蓝风格 ===== */
+QPushButton {
+    background-color: #E6F2F8;
+    color: #2A4554;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+}
+QPushButton:hover {
+    background-color: #D0E5EF;
+}
+QPushButton:pressed {
+    background-color: #B9D6E4;
+}
+
+/* 【按标签查询】清新浅青蓝，协调统一 */
+QPushButton#queryBtn {
+    background-color: #C6E4EE;
+    color: #1F4657;
+}
+QPushButton#queryBtn:hover {
+    background-color: #A9D6E6;
+}
+QPushButton#queryBtn:pressed {
+    background-color: #8CC6DD;
+}
+
+/* 【标签管理】柔和淡薄荷绿，区分功能 */
+QPushButton#manageBtn {
+    background-color: #D7ECE8;
+    color: #22544A;
+}
+QPushButton#manageBtn:hover {
+    background-color: #BDE2DB;
+}
+QPushButton#manageBtn:pressed {
+    background-color: #A0D4CB;
+}
+
+/* ===== 复选框美化 同源浅蓝色选中 ===== */
+QCheckBox {
+    font-size: 13px;
+    color: #2A4554;
+    spacing: 8px;
+}
+QCheckBox::indicator {
+    width: 17px;
+    height: 17px;
+    border-radius: 4px;
+    border: 1px solid #BFD8E2;
+    background-color: #ffffff;
+}
+QCheckBox::indicator:hover {
+    border-color: #97B9CB;
+}
+QCheckBox::indicator:checked {
+    background-color: #7CB8D2;
+    border-color: #63A7C6;
+}
+
+/* ===== 文本标签 ===== */
+QLabel {
+    font-size: 13px;
+    color: #2A4554;
+}
+
+/* ===== 复选框容器（圆角边框） ===== */
+#checkBoxContainer {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+}
+
+/* ===== 数值输入框、日期选择框 ===== */
+QSpinBox, QDateEdit {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 13px;
+    color: #2A4554;
+}
+QSpinBox:focus, QDateEdit:focus {
+    border-color: #7CB8D2;
+    outline: none;
+}
+
+/* ===== 左侧目录列表 hover/selected 柔和同源配色 ===== */
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #2A4554;
+    outline: none;
+}
+QListWidget::item {
+    padding: 7px 12px;
+    border-bottom: 1px solid #E6F2F8;
+}
+QListWidget::item:hover {
+    background-color: #EDF6FA;
+}
+QListWidget::item:selected {
+    background-color: #D0E5EF;
+    color: #1F3844;
+}
+
+/* ===== 底部信息文本框 ===== */
+QTextEdit {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #2A4554;
+    padding: 10px;
+}
+
+/* ===== 全局滚动条柔和浅蓝风格 ===== */
+QScrollBar:vertical {
+    width: 9px;
+    background: transparent;
+    margin: 3px 2px;
+}
+QScrollBar::handle:vertical {
+    background: #BFD8E2;
+    border-radius: 5px;
+    min-height: 28px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #97B9CB;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    height: 9px;
+    background: transparent;
+    margin: 2px 3px;
+}
+QScrollBar::handle:horizontal {
+    background: #BFD8E2;
+    border-radius: 5px;
+    min-width: 28px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #97B9CB;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* ===== 滚动区域（包含网格） ===== */
+QScrollArea {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+}
+QScrollArea > QWidget {
+    background-color: transparent;
+}
+QScrollArea > QWidget > QWidget {
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+/* ===== 顶部控制栏容器（与 checkBoxContainer 风格一致） ===== */
+#topControlBar {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+/* ===== 下拉选择框 ===== */
+QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 6px;
+    /* 减小左右padding，收缩空白！ */
+    padding: 4px 4px;
+    font-size: 13px;
+    color: #2A4554;
+    /* 根据你的文字设置更小最小宽度 */
+    min-width: 65px;
+}
+QComboBox:hover {
+    border-color: #97B9CB;
+}
+QComboBox:focus {
+    border-color: #7CB8D2;
+    outline: none;
+}
+
+/* 隐藏下拉箭头 */
+QComboBox::drop-down {
+    width: 0px;
+    border: none;
+    background: transparent;
+}
+QComboBox::down-arrow {
+    image: none;
+}
+
+/* 下拉弹出菜单 */
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 6px;
+    selection-background-color: #EDF6FA;
+    selection-color: #1F3844;
+    color: #2A4554;
+    outline: none;
+}
+QComboBox QAbstractItemView::item {
+    padding: 5px 12px;
+    min-height: 24px;
+    background-color: #ffffff;
+}
+QComboBox QAbstractItemView::item:hover {
+    background-color: #EDF6FA;
+}
+
+
+
+
+/* ===== 单行输入框（目录筛选 QLineEdit）与SpinBox、DateEdit风格统一 ===== */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #C9E0EB;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 13px;
+    color: #2A4554;
+    /* 占位提示文字浅灰色 */
+    placeholder-text-color: #88A3B2;
+    selection-background-color: #D0E5EF;
+    selection-color: #1F3844;
+}
+QLineEdit:hover {
+    border-color: #97B9CB;
+}
+QLineEdit:focus {
+    border-color: #7CB8D2;
+    outline: none;
+}
