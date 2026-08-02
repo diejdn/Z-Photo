@@ -1,5 +1,3 @@
----
-
 # Z-Photo
 
 [![Qt](https://img.shields.io/badge/Qt-6.7.3-brightgreen)](https://www.qt.io/)
